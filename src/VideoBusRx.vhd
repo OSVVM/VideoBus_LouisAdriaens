@@ -14,6 +14,7 @@
 --
 --  Revision History:
 --    Date      Version    Description
+--    03/2024   2024.03    Updated SafeResize to use ModelID
 --    08/2023   1.00       Initial revision
 
 library ieee;
@@ -116,7 +117,7 @@ begin
                     end if;
                     -- Put Data into record
                     RxData := Pop(ReceiveFifo);
-                    TransRec.DataFromModel <= SafeResize(RxData,  TransRec.DataFromModel'length); 
+                    TransRec.DataFromModel <= SafeResize(ModelID, RxData,  TransRec.DataFromModel'length); 
 
                     Log(ModelID, 
                         "Received: " & to_hxstring(RxData) & 
