@@ -100,13 +100,13 @@ architecture TestHarness of TbVideoBus is
     end component;
 begin
     -- create Clock
-    Osvvm.TbUtilPkg.CreateClock (
+    Osvvm.ClockResetPkg.CreateClock (
         Clk        => Clk,
         Period     => Tperiod_Clk
     );
 
     -- create nReset
-    Osvvm.TbUtilPkg.CreateReset (
+    Osvvm.ClockResetPkg.CreateReset (
         Reset       => nReset,
         ResetActive => '0',
         Clk         => Clk,
