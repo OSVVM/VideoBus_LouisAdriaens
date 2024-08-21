@@ -515,7 +515,7 @@ begin
                      end if;
                   end loop;
                   -- Fill missing pixels with red color
-                  for i in 1 to (VIDEO_WIDTH - pixelCount) loop 
+                  for pixelRedIndex in 1 to (VIDEO_WIDTH - pixelCount) loop 
                      pixel := 24X"FF0000";
                      PutPixel(pic_file, pixel);
                   end loop;
@@ -524,7 +524,7 @@ begin
             end loop;
             -- Fill missing pixels with red color
             for j in 1 to (VIDEO_HEIGHT - lineCount) loop
-               for i in 1 to VIDEO_WIDTH loop
+               for videoWidthIndex in 1 to VIDEO_WIDTH loop
                   pixel := 24X"FF0000";
                   PutPixel(pic_file, pixel);
                end loop;   
