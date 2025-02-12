@@ -190,7 +190,7 @@ begin
 
         TransmitLoop : loop
                 -- Find Transaction
-            if Empty(TransmitFifo) then
+            if IsEmpty(TransmitFifo) then
                 WaitForToggle(TransmitRequestCount);
             else 
                 wait for 0 ns; -- allow TransmitRequestCount to settle if both happen at same time.

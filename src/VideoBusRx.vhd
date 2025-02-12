@@ -107,7 +107,7 @@ begin
                 -- Model Transaction Dispatch
                 when GET =>
                     TransRec.BoolFromModel <= TRUE;
-                    if (Empty(ReceiveFifo)) then
+                    if (IsEmpty(ReceiveFifo)) then
                         -- Wait for data
                         WaitForToggle(ReceiveCount);
                     else 
@@ -127,7 +127,7 @@ begin
 
                 -- Execute Standard Directive Transactions
                 when WAIT_FOR_TRANSACTION =>
-                    if Empty(ReceiveFifo) then 
+                    if IsEmpty(ReceiveFifo) then 
                         WaitForToggle(ReceiveCount);
                     end if; 
 
