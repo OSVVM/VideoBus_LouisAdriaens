@@ -230,7 +230,12 @@ package body bmplibpack is
       file f         : T_PICFILE;
       variable Value : in  T_BYTE) is
    begin
-      write(f,character'val(to_integer(unsigned(Value))));
+      if not is_x(Value) then
+         write(f,character'val(to_integer(unsigned(Value))));
+      else
+         -- Write metavalues as 0 - without the warning
+         write(f,character'val(integer'(0)));
+      end if;
    end write_byte;
 
    procedure write_word(
